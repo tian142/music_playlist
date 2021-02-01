@@ -37,7 +37,24 @@ class Playlist:
     # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed.
 
     def remove_song(self, title):
-        pass
+        # store first song
+        curr = self.__first_song
+        # if the first song is to be deleted
+        if(curr is not None):
+            if(curr.__title == title):
+                self.__first_song = curr.__next_song
+                curr = None
+                return
+        # keep searching using next song
+        while(curr is not None):
+            if (curr.__title == title):
+                break
+            prev = curr
+            curr = curr.__next_song
+
+        # Unlink the node from Playlist
+        prev.next = curr.__next_song
+        curr = None
 
     # TODO: Create a method called length, which returns the number of songs in the playlist.
 
@@ -52,4 +69,11 @@ class Playlist:
     # 3. Song Title 3
 
     def print_songs(self):
-        pass
+        current_song = self.__first_song
+        index = 0
+
+        while current_song:
+            track = current_song.__title
+            print(f'{index + 1}. {track}')
+            index += 1
+            current_song = current_song.next
