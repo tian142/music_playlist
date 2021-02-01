@@ -42,7 +42,7 @@ class Playlist:
     # TODO: Create a method called length, which returns the number of songs in the playlist.
 
     def length(self):
-        pass
+        return len(Playlist)
 
     # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
 
