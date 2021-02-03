@@ -6,9 +6,16 @@ class Playlist:
         self.__first_song = None
 
     def add_song(self, title):
-        new_song = Song(title)
-        new_song.set_next_song(self.__first_song)
-        self.__first_song = new_song
+
+        if self.__first_song == None:
+            new_song = Song(title)
+            self.__first_song = new_song
+        else:
+            new_song = Song(title)
+            current_song = self.__first_song
+            while current_song.get_next_song() != None:
+                current_song = current_song.get_next_song()
+            current_song.set_next_song(new_song)
 
     def find_song(self, title):
         node = self.__first_song
