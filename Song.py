@@ -1,8 +1,8 @@
 class Song:
 
-    def __init__(self, title):
+    def __init__(self, title, next=None):
         self.__title = title
-        self.__next_song = None
+        self.__next_song = next
 
     # TODO: Create a getter method for the title attribute, called get_title
 
