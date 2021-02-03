@@ -10,7 +10,7 @@ class Playlist:
     def add_song(self, title):
         new_song = Song(title)
 
-        if self.__first_song = None:
+        if (self.__first_song == None):
             self.__first_song = new_song
             return
 
@@ -25,14 +25,15 @@ class Playlist:
     # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
 
     def find_song(self, title):
-        index = 0
-        while index < len(Playlist):
-            if title == Playlist[index]:
-                return index
-            else:
-                index += 1
+        pass
+        # index = 0
+        # while index < len(Playlist):
+        #     if title == Playlist[index]:
+        #         return index
+        #     else:
+        #         index += 1
 
-        return None
+        # return None
 
     # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed.
 
@@ -69,11 +70,11 @@ class Playlist:
     # 3. Song Title 3
 
     def print_songs(self):
-        current_song = self.__first_song
-        index = 0
 
-        while current_song:
-            track = current_song.__title
-            print(f'{index + 1}. {track}')
-            index += 1
-            current_song = current_song.next
+        current_song = self.__first_song
+        counter = 0
+        while current_song != None:
+            print(current_song.__title)
+            print(f"{counter + 1}. {current_song.get_title()}")
+            counter += 1
+            current_song = current_song.get_next_song()
